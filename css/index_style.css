@@ -1,0 +1,564 @@
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../images/preloader.gif) center no-repeat #fff;
+}
+body{
+	height: auto;	
+}
+p{
+	text-align: justify;
+}
+.navbar{
+	background-color: #101010;
+	position: fixed;
+}
+.navbar-brand{
+	width: 19%;
+}
+.navbar-brand img{
+	width: 100%;
+}
+.nav-link{
+	font-family: Roboto;
+	font-size: 14px; 
+	transition: 0.4s ease;
+	border-bottom: 3px solid transparent;
+}
+.active{
+	color: #fff;
+	border-bottom: 3px solid #13db24;
+}
+#nav-links .nav-item .nav-link:hover{
+	color: #fff;
+	border-bottom: 3px solid #13db24;
+}
+#sign_out_btn, #sign_in_btn{
+	font-size: 14px;
+	margin: 3px 0;
+}
+.dropdown-item{
+	font-family: Roboto;
+	transition: 0.4s ease;
+}
+.nav-item #sign_out_btn, .nav-item #sign_in_btn{
+	color: #eee;
+}
+#nav-links li{
+	margin: 5px 10px;
+}
+.nav-item span{
+	padding-right: 5px;
+	font-weight: bold;
+	color: rgba(225,225,225,0.6);
+}
+.dropdown .dropdown-menu{
+	width: 225px;
+	font-size: 13px;
+}
+.dropdown #dropdown-menu1 a:hover{
+	background-color: #fff;
+	color: #13db24;
+}
+.dropdown #dropdown-menu1{
+	width: auto;
+}
+.dropdown #navbarDropdown{
+	color: #eee;
+}
+.fas{
+	padding-right: 10px;
+}
+#user-name{
+	font-family: Viga;
+	font-weight: 300;
+	color: #eee;
+	padding: 8px 15px;
+	border-left: 2px solid #fff;
+	border-top: none;
+}
+/*//////////////////////slider//////////////////////*/
+.carousel-control-prev:hover{
+	background-image: linear-gradient(to right,rgba(0,0,0,0.7),rgba(0,0,0,0));
+	transition: 0.4s;
+}
+.carousel-control-next:hover{
+	background-image: linear-gradient(to left,rgba(0,0,0,0.7),rgba(0,0,0,0));
+	transition: 0.4s;
+}
+/*//////////////////////////////////////////////////*/
+.fas{
+	padding-right: 5px;
+}
+.dark-background{
+	padding: 90px 0;
+	background-color: rgba(0,0,0,0.5);
+}
+/*--------------------------------------------------------------
+#sroll button
+---------------------------------------------------------------*/
+#scroll-btn-section{
+	width: 100%;
+	position: relative;
+}
+.scroll-horizontal-line{
+	height: 40px;
+	width: 100%;
+	background-color: #101010;
+}
+.curved-div-front, .curved-div-back{
+	position: relative;
+	background-color: #c9c9c9;
+	height: 40px;
+	width: 47.1%;
+	top: -30px;
+}
+.curved-div-front{
+	border-radius: 0 50px 0 0;
+}
+.curved-div-back{
+	top: -131px;
+	float: right;
+	border-radius: 50px 0 0 0;
+}
+.curved-div-middle{
+	position: relative;
+	top: -73px;
+	width: 85px;
+	height: 60px;
+	margin: 0 auto;
+	background-color: #101010;
+	border-radius: 0 0 39px 39px;
+	z-index: 1;
+}
+.mouse_scroll {
+  display: block;
+  margin: 0 auto;
+  width: 27%;
+}
+.m_scroll_arrows
+{
+  display: block;
+  width: 5px;
+  height: 5px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+   
+  border-right: 2px solid #bbb;
+  border-bottom: 2px solid #bbb;
+  margin: 0 0 3px 4px;
+  
+  width: 16px;
+  height: 16px;
+}
+.unu
+{
+  margin-top: 1px;
+}
+.unu, .doi, .trei
+{
+    -webkit-animation: mouse-scroll 1s infinite;
+    -moz-animation: mouse-scroll 1s infinite;
+}
+.unu
+{
+  -webkit-animation-delay: .1s;
+  -moz-animation-delay: .1s;
+  -webkit-animation-direction: alternate;
+}
+.doi
+{
+  -webkit-animation-delay: .2s;
+  -moz-animation-delay: .2s;
+  -webkit-animation-direction: alternate;
+  margin-top: -6px;
+}
+.trei
+{
+  -webkit-animation-delay: .3s;
+  -moz-animation-delay: .3s;
+  -webkit-animation-direction: alternate;
+  margin-top: -6px;
+}
+@-webkit-keyframes mouse-scroll {
+
+  0%   { opacity: 0;}
+  50%  { opacity: .5;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@-o-keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+@keyframes mouse-scroll {
+
+  0%   { opacity: 0; }
+  50%  { opacity: .5; }
+  100% { opacity: 1; }
+}
+/***********************about section**********************************/
+.about-container{
+	position: relative;
+	top: -30px;
+	width: 80%;
+	margin: 0 auto 80px auto;
+}
+.about-div-content{
+	position: relative;
+	left: 350px;
+	width: 70%;
+	background-image: url(../images/grass3.png);
+	background-size: cover;
+	background-position: top left;
+	background-size: cover;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 6px 8px 3px rgba(0, 0, 0, 0.3);
+}
+#about-div-text{
+	margin-top: 30px;
+}
+#elephant-img1{
+	position: relative;
+	left: -415px;
+	margin-top: 20px;
+	-webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.7));
+}
+.titles{
+	font-size: 50px;
+	font-family: Baloo Chettan;
+}
+.title-description{
+	font-family: Roboto;
+	line-height: 22px;
+}
+.small-div-part{
+	border-top: 3px solid green;
+	width: 10%;
+	margin-bottom: 30px;
+}
+.grass-div img{
+	width: 100%;
+}
+/*********************History section*********************************/
+.history-section{
+	background-image: url(../images/image10.jpg);
+	background-attachment: fixed;
+}
+.history-container{
+	width: 80%;
+	margin: 0 auto 0px auto;
+}
+.history-div-content{
+	width: 80%;
+	padding-left: 30px;
+	padding-bottom: 40px;
+	background-image: url(../images/leaves1.png);
+	background-size: cover;
+	background-position: top left;
+	background-size: cover;
+	background-color: #e2e2e2;
+	border-radius: 10px;
+	box-shadow: 0 6px 8px 3px rgba(0, 0, 0, 0.3);
+}
+#history-div-text{
+	margin-top: 30px;
+}
+#elephant-img2{
+	position: relative;
+	left: -50px;
+	width: 260%;
+	margin-top: 70px;
+	-webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.7));
+}
+.title-description span{
+	font-weight: bold;
+	color: #757575;
+}
+/*********************concept section*******************************/
+.concept-section{
+	padding: 90px 0;
+}
+.concept-container{
+	width: 80%;
+	margin: 0 auto 0px auto;
+}
+.concept-div-content{
+	position: relative;
+	left: 350px;
+	width: 70%;
+	padding-bottom: 40px;
+	background-image: url(../images/grass1-1.png);
+	background-size: cover;
+	background-position: top left;
+	background-size: cover;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 6px 8px 3px rgba(0, 0, 0, 0.3);
+}
+#concept-div-text{
+	margin-top: 30px;
+}
+#elephant-img3{
+	position: relative;
+	left: -370px;
+	margin-top: 100px;
+	-webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.7));
+}
+.guide-link-para{
+	text-align: right;
+}
+.guide-link{
+	background-color: #13db24;
+	color: #fff;
+	font-family: Roboto;
+	font-size: 13px;
+	text-decoration: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	transition: 0.2s;
+}
+.guide-link:hover{
+	text-decoration: none;
+	color: #101010;
+}
+/*********************Data Collection & Outcome section*********************************/
+.data-section{
+	background-image: url(../images/image10.jpg);
+	background-attachment: fixed;
+	background-position: right top;
+}
+.data-container{
+	width: 80%;
+	margin: 0 auto 0px auto;
+}
+.data-div-content{
+	width: 80%;
+	padding-left: 30px;
+	padding-bottom: 40px;
+	background-image: url(../images/leaves2.png);
+	background-size: cover;
+	background-position: right center;
+	background-size: cover;
+	background-color: #e2e2e2;
+	border-radius: 10px;
+	box-shadow: 0 6px 8px 3px rgba(0, 0, 0, 0.3);
+}
+#data-div-text{
+	margin-top: 30px;
+}
+#elephant-img4{
+	position: relative;
+	left: -200px;
+	width: 310%;
+	margin-top: 50px;
+	-webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.7));
+}
+.title-description span{
+	font-weight: bold;
+	color: #757575;
+}
+
+/*-------------------------------------------------------------------------------------
+#######################################################################################
+
+								Reference Page styles
+
+#######################################################################################
+--------------------------------------------------------------------------------------*/
+
+.reference-title{
+	margin: 50px 0 30px 0;
+	border-left: 7px solid #13db24;
+}
+.reference-title h2{
+	padding: 7px 15px;
+	font-family: Roboto;
+	font-weight: 300;
+}
+.reference-table table thead th{
+	text-align: center;
+}
+.reference-table table tbody .center-cols{
+	text-align: center;
+}
+.reference-table table tbody{
+	font-size: 13px;
+	font-family: Roboto;
+}
+.reference-table table .def-col{
+	width: 35%;
+}
+.reference-table table .eg-col{
+	width: 20%;
+}
+
+/*---------------------------------------------------------------------------------------
+#########################################################################################
+
+								Sign up page styles
+
+#########################################################################################
+----------------------------------------------------------------------------------------*/
+
+.sign-up-back{
+	font-family: Roboto;
+	font-weight: 300;
+}
+.signup-form-div{
+	background-color: #eee;
+	width: 100%;
+	padding: 30px 60px;
+	border-radius: 5px;
+}
+.signup-form-div .far, .signup-form-div .fas{
+	padding: 0 10px 0 5px;
+}
+.signup-form-div .signup-form-title{
+	padding: 2px 12px;
+	margin-bottom: 30px;
+	border-top: 3px solid rgba(19,219,36,0.7);
+	border-bottom: 3px solid rgba(19,219,36,0.7);
+}
+.signup-form-div .signup-form-title h3{
+	font-family: Roboto;
+	font-weight: bold;
+}
+
+/*---------------------------------------------------------------------------------------
+#########################################################################################
+
+								Find elephant page styles
+
+#########################################################################################
+----------------------------------------------------------------------------------------*/
+
+.find-el{
+	font-family: Roboto;
+	font-weight: 300;
+}
+.find-el-container{
+	background-color: #eee;
+	width: 100%;
+	padding: 30px 40px;
+	border-radius: 5px;
+}
+.find-el-container label{
+	font-size: 14px;
+}
+
+/*---------------------------------------------------------------------------------------
+#########################################################################################
+
+								Add elephant page styles
+
+#########################################################################################
+----------------------------------------------------------------------------------------*/
+
+.add-el-form{
+	background-color: #eee;
+	padding: 50px 80px;
+	font-size: 14px;
+	border-radius: 5px;
+}
+.selector option:hover{
+	color: #000;
+	border-bottom: none;
+}
+.add-el-form #form2 p{
+	font-size: 18px;
+}
+
+/*---------------------------------------------------------------------------------------
+#########################################################################################
+
+								Admin panel page styles
+
+#########################################################################################
+----------------------------------------------------------------------------------------*/
+
+.admin-form-div{
+	background-color: #f6f6f6;
+	width: 100%;
+	padding: 30px 60px;
+	border-radius: 5px;
+}
+table{
+	font-size: 13px;
+}
+#show_user_button{
+	margin-bottom: 20px; 
+}
+
+/*----------------------------------------------------------------------------------------
+##########################################################################################
+
+								Footer section
+
+##########################################################################################
+-----------------------------------------------------------------------------------------*/
+.footer_sec{
+	background-color: #101010;
+	color: #fff;
+}
+#footer-container{
+	padding: 30px 0 20px 0; 
+}
+#img-col{
+	padding-top: 40px;
+}
+#img-col img{
+	width: 75%;
+}
+.quik-links-title, .contact-links-title{
+	font-size: 20px;
+	font-family: Baloo Chettan;
+	padding-bottom: 5px;
+}
+.quik-links ul, .contact-links ul{
+	font-family: Roboto;
+	font-size: 15px;
+	padding: 0;
+	list-style: none;
+}
+.quik-links ul li a{
+	color: #d3dd13;
+	transition: 0.3s;
+}
+.quik-links ul li a:hover{
+	text-decoration: none;
+	color: #13db24;
+}
+.quik-links-icons, .contact-links-icons{
+	padding-right: 10px;
+}
+.contact-links ul p{
+	font-size: 12px;
+	padding-left: 30px;
+}
+.contact-links ul li{
+	color: #d3dd13;
+}
+.contact-links ul p a:hover{
+	text-decoration: none;
+}
+.copyright-div{
+	background-color: #000;
+	text-align: center;
+	color: #bbb;
+	padding: 10px 0;
+	font-size: 12px;
+}
