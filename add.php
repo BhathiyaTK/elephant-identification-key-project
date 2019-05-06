@@ -5,6 +5,8 @@ include 'db.php';
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	if(isset($_POST["add_el"])){
 
+		$user = $_SESSION["first_name"];
+
 		$sex = $_POST["sex"];
 		$age = $_POST["age"];
 		$es_fold = $_POST["es_fold"];
@@ -33,6 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$s_height = $_POST["s_height"];
 		$p_body = $_POST["p_body"];
 		$area = $_POST["city"];
+		$village = $_POST["village"];
 		$longitude = $_POST["longitude"];
 		$latitude = $_POST["latitude"];
 		$file_front = $_FILES['img_front']['name'];
@@ -40,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$file_left = $_FILES['img_left']['name'];
 		$file_right = $_FILES['img_right']['name'];
 
-	    if (($sex!=='')&&($age!=='')&&($es_fold!=='')&&($et_fold!=='')&&($e_angle!=='')&&($el_shape!=='')&&($el_length!=='')&&($e_length!=='')&&($e_nick_tear!=='')&&($e_holes!=='')&&($e_depig!=='')&&($h_depig!=='')&&($j_depig!=='')&&($t_depig!=='')&&($j_shape!=='')&&($h_shape!=='')&&($tusks!=='')&&($tushes!=='')&&($t_length!=='')&&($t_brush!=='')&&($th_spread!=='')&&($th_nature!=='')&&($t_kink!=='')&&($wwl!=='')&&($b_shape!=='')&&($s_height!=='')&&($p_body!=='')&&($area!=='')&&($file_front!=='')&&($file_back!=='')&&($file_left!=='')&&($file_right!=='')) {
+	    if (($sex!=='')&&($age!=='')&&($es_fold!=='')&&($et_fold!=='')&&($e_angle!=='')&&($el_shape!=='')&&($el_length!=='')&&($e_length!=='')&&($e_nick_tear!=='')&&($e_holes!=='')&&($e_depig!=='')&&($h_depig!=='')&&($j_depig!=='')&&($t_depig!=='')&&($j_shape!=='')&&($h_shape!=='')&&($tusks!=='')&&($tushes!=='')&&($t_length!=='')&&($t_brush!=='')&&($th_spread!=='')&&($th_nature!=='')&&($t_kink!=='')&&($wwl!=='')&&($b_shape!=='')&&($s_height!=='')&&($p_body!=='')&&($area!=='')&&($village!=='')&&($file_front!=='')&&($file_back!=='')&&($file_left!=='')&&($file_right!=='')) {
 
 	    	if(($longitude=='')&&($latitude=='')){
 	    		require_once('geoplugin.class.php');
@@ -48,10 +51,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				 
 				$geoplugin->locate();
 
+				$village = $geoplugin->city;
 				$latitude = $geoplugin->latitude;
 				$longitude = $geoplugin->longitude;
 
-				$sql_el_details = "INSERT INTO elephants(sex,age,es_fold,et_fold,e_angle,el_shape,el_length,e_length,e_nick_tear,e_holes,e_depig,h_depig,j_depig,t_depig,j_shape,h_shape,tusks,tushes,t_length,t_brush,th_spread,th_nature,t_kink,wwl,b_shape,s_height,p_body,area,longitude,latitude,image_front,image_back,image_left,image_right) VALUES('$sex','$age','$es_fold','$et_fold','$e_angle','$el_shape','$el_length','$e_length','$e_nick_tear','$e_holes','$e_depig','$h_depig','$j_depig','$t_depig','$j_shape','$h_shape','$tusks','$tushes','$t_length','$t_brush','$th_spread','$th_nature','$t_kink','$wwl','$b_shape','$s_height','$p_body','$area','$longitude','$latitude','$file_front','$file_back','$file_left','$file_right')";
+				$front = $user."/".$file_front;
+				$back = $user."/".$file_back;
+				$left = $user."/".$file_left;
+				$right = $user."/".$file_right;
+
+				$sql_el_details = "INSERT INTO elephants(sex,age,es_fold,et_fold,e_angle,el_shape,el_length,e_length,e_nick_tear,e_holes,e_depig,h_depig,j_depig,t_depig,j_shape,h_shape,tusks,tushes,t_length,t_brush,th_spread,th_nature,t_kink,wwl,b_shape,s_height,p_body,area,village,longitude,latitude,image_front,image_back,image_left,image_right) VALUES('$sex','$age','$es_fold','$et_fold','$e_angle','$el_shape','$el_length','$e_length','$e_nick_tear','$e_holes','$e_depig','$h_depig','$j_depig','$t_depig','$j_shape','$h_shape','$tusks','$tushes','$t_length','$t_brush','$th_spread','$th_nature','$t_kink','$wwl','$b_shape','$s_height','$p_body','$area','$village','$longitude','$latitude','$front','$back','$left','$right')";
 	        
 		        if ($conn->query($sql_el_details)) {
 
@@ -76,18 +85,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		            $add_msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><b><i class="fas fa-exclamation-triangle fa-lg"></i> Process Failed! Check your network connection & try again</b></div>';
 		        }
 	    	}elseif (($longitude!=='')&&($latitude!=='')) {
-	    		$sql_el_details = "INSERT INTO elephants(sex,age,es_fold,et_fold,e_angle,el_shape,el_length,e_length,e_nick_tear,e_holes,e_depig,h_depig,j_depig,t_depig,j_shape,h_shape,tusks,tushes,t_length,t_brush,th_spread,th_nature,t_kink,wwl,b_shape,s_height,p_body,area,longitude,latitude,image_front,image_back,image_left,image_right) VALUES('$sex','$age','$es_fold','$et_fold','$e_angle','$el_shape','$el_length','$e_length','$e_nick_tear','$e_holes','$e_depig','$h_depig','$j_depig','$t_depig','$j_shape','$h_shape','$tusks','$tushes','$t_length','$t_brush','$th_spread','$th_nature','$t_kink','$wwl','$b_shape','$s_height','$p_body','$area','$longitude','$latitude','$file_front','$file_back','$file_left','$file_right')";
+
+	    		$front = $user."/".$file_front;
+				$back = $user."/".$file_back;
+				$left = $user."/".$file_left;
+				$right = $user."/".$file_right;
+
+	    		$sql_el_details = "INSERT INTO elephants(sex,age,es_fold,et_fold,e_angle,el_shape,el_length,e_length,e_nick_tear,e_holes,e_depig,h_depig,j_depig,t_depig,j_shape,h_shape,tusks,tushes,t_length,t_brush,th_spread,th_nature,t_kink,wwl,b_shape,s_height,p_body,area,village,longitude,latitude,image_front,image_back,image_left,image_right) VALUES('$sex','$age','$es_fold','$et_fold','$e_angle','$el_shape','$el_length','$e_length','$e_nick_tear','$e_holes','$e_depig','$h_depig','$j_depig','$t_depig','$j_shape','$h_shape','$tusks','$tushes','$t_length','$t_brush','$th_spread','$th_nature','$t_kink','$wwl','$b_shape','$s_height','$p_body','$area','$village','$longitude','$latitude','$front','$back','$left','$right')";
 	        
 		        if ($conn->query($sql_el_details)) {
 
 		        	$folder = $_SESSION['first_name'];
-		        	mkdir('uploads/'.$folder,0777);
 
-		        	move_uploaded_file($_FILES['img_front']['tmp_name'], 'uploads/'.$folder.'/'.$file_front);
-		        	move_uploaded_file($_FILES['img_back']['tmp_name'], 'uploads/'.$folder.'/'.$file_back);
-		        	move_uploaded_file($_FILES['img_left']['tmp_name'], 'uploads/'.$folder.'/'.$file_left);
-		        	move_uploaded_file($_FILES['img_right']['tmp_name'], 'uploads/'.$folder.'/'.$file_right);
-		            $add_msg = '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><b><i class="fas fa-check-circle fa-lg"></i> Elephant added successfully!<b></div>';
+		        	if ((!is_dir('uploads/'.$user))&&(!file_exists('uploads/'.$user))) {
+		        		mkdir('uploads/'.$user,0777);
+
+		        		move_uploaded_file($_FILES['img_front']['tmp_name'], 'uploads/'.$folder.'/'.$file_front);
+			        	move_uploaded_file($_FILES['img_back']['tmp_name'], 'uploads/'.$folder.'/'.$file_back);
+			        	move_uploaded_file($_FILES['img_left']['tmp_name'], 'uploads/'.$folder.'/'.$file_left);
+			        	move_uploaded_file($_FILES['img_right']['tmp_name'], 'uploads/'.$folder.'/'.$file_right);
+			            $add_msg = '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><b><i class="fas fa-check-circle fa-lg"></i> Elephant added successfully!</b></div>';
+		        	}else{
+			        	move_uploaded_file($_FILES['img_front']['tmp_name'], 'uploads/'.$folder.'/'.$file_front);
+			        	move_uploaded_file($_FILES['img_back']['tmp_name'], 'uploads/'.$folder.'/'.$file_back);
+			        	move_uploaded_file($_FILES['img_left']['tmp_name'], 'uploads/'.$folder.'/'.$file_left);
+			        	move_uploaded_file($_FILES['img_right']['tmp_name'], 'uploads/'.$folder.'/'.$file_right);
+			            $add_msg = '<div class="alert alert-success alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><b><i class="fas fa-check-circle fa-lg"></i> Elephant added successfully!</b></div>';
+		        	}
 		        }else{
 		            $add_msg = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><b><i class="fas fa-exclamation-triangle fa-lg"></i> Process Failed! Check your network connection & try again</b></div>';
 		        }
@@ -148,7 +172,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		});
 	</script>
 	<style>
-		p span{
+		p span, label span{
 			color: red;
 		}
 		.alert{
@@ -398,11 +422,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					      	<label for="inputState">Tail Length</label>
 					      	<select class="form-control form-control-sm selector" name="t_length" id="t_length">
 					        	<option value="" selected>Choose...</option>
-					        	<option value="T18S1" data-left="images/examples/80.png">Very Long</option>
-					        	<option value="T18S2" data-left="images/examples/81.png">Long</option>
-					        	<option value="T18S3" data-left="images/examples/82.png">Medium</option>
-					        	<option value="T18S4" data-left="images/examples/83.png">Short</option>
-					        	<option value="T18S5" data-left="images/examples/84.png">Stumpy</option>
+					        	<option value="T19S1" data-left="images/examples/80.png">Very Long</option>
+					        	<option value="T19S2" data-left="images/examples/81.png">Long</option>
+					        	<option value="T19S3" data-left="images/examples/82.png">Medium</option>
+					        	<option value="T19S4" data-left="images/examples/83.png">Short</option>
+					        	<option value="T19S5" data-left="images/examples/84.png">Stumpy</option>
 					      	</select>
 					    </div>
 					     <div class="form-group col-md-4">
@@ -515,8 +539,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<hr>
 					<p><b>Elephant's geograpical location informations</b></p>
 					<div class="row">
-						<div class="form-group col-md-4">
-					      	<label for="inputState">Area</label>
+						<div class="form-group col-md-3">
+					      	<label for="inputState">Area<span><b>*</b></span></label>
 					      	<select class="form-control form-control-sm selector_spec" name="city" id="city">
 					        	<option value="" selected>Choose...</option>
 					        	<?php
@@ -529,11 +553,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					        	?>
 					      	</select>
 					    </div>
-					    <div class="form-group col-md-4">
+					    <div class="form-group col-md-3">
+					      	<label for="inputState">City / Village<span><b>*</b></span></label>
+					      	<input type="text" class="form-control form-control-sm" name="village" id="village" placeholder="Founded city/ village here...">
+					    </div>
+					    <div class="form-group col-md-3">
 					      	<label for="inputState">Longitude <i>(Optional)</i></label>
 					      	<input type="text" class="form-control form-control-sm" name="longitude" id="longitude" placeholder="Enter longitude value here...">
 					    </div>
-					    <div class="form-group col-md-4">
+					    <div class="form-group col-md-3">
 					      	<label for="inputState">Latitude <i>(Optional)</i></label>
 					      	<input type="text" class="form-control form-control-sm" name="latitude" id="latitude" placeholder="Enter latitude value here...">
 					    </div>
