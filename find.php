@@ -47,6 +47,8 @@ include 'db.php';
 		
 		$(document).ready(function(){
 			$("#form1-1-div").hide();
+			$("#el_map_details").hide();
+			$("#el_map_details1").hide();
 
 			$('.selector').selectator();
 			$('.selector_spec').selectator({
@@ -67,6 +69,67 @@ include 'db.php';
 					$("#form1")[0].reset();
 					$("#form1-div").hide();
 				}
+			});
+		});
+		$(function(){
+			$("#form1").on('submit', function(e1){
+				e1.preventDefault();
+				var distVal = $("#district option:selected").text();
+				var areaVal = $("#city").val();
+				$.ajax({
+					type: 'POST',
+					url: 'location_wise.php',
+					data: {distVal:distVal,areaVal:areaVal},
+					success: function(data1){
+						$("#el_map_details").show();
+						$("#el_map_details").html(data1);
+						$("#el_map_details1").hide();
+						$("#form1-1")[0].reset();
+					}
+				});
+			});
+		});
+		$(function(){
+			$("#form1-1").on('submit', function(e2){
+				e2.preventDefault();
+				var sex = $("#sex").val();
+				var age = $("#age").val();
+				var es_fold = $("#es_fold").val();
+				var et_fold = $("#et_fold").val();
+				var e_angle = $("#e_angle").val();
+				var el_shape = $("#el_shape").val();
+				var el_length = $("#el_length").val();
+				var e_nick_tear = $("#e_nick_tear").val();
+				var e_holes = $("#e_holes").val();
+				var e_depig = $("#e_depig").val();
+				var h_depig = $("#h_depig").val();
+				var j_depig = $("#j_depig").val();
+				var t_depig = $("#t_depig").val();
+				var j_shape = $("#j_shape").val();
+				var h_shape = $("#h_shape").val();
+				var tusks = $("#tusks").val();
+				var tushes = $("#tushes").val();
+				var t_length = $("#t_length").val();
+				var t_brush = $("#t_brush").val();
+				var th_spread = $("#th_spread").val();
+				var th_nature = $("#th_nature").val();
+				var t_kink = $("#t_kink").val();
+				var wwl = $("#wwl").val();
+				var b_shape = $("#b_shape").val();
+				var s_height = $("#s_height").val();
+				var p_body = $("#p_body").val();
+
+				$.ajax({
+					type: 'POST',
+					url: 'elephant_wise.php',
+					data: {sex:sex,age:age,es_fold:es_fold,et_fold:et_fold,e_angle:e_angle,el_shape:el_shape,el_length:el_length,e_nick_tear:e_nick_tear,e_holes:e_holes,e_depig:e_depig,h_depig:h_depig,j_depig:j_depig,t_depig:t_depig,j_shape:j_shape,h_shape:h_shape,tusks:tusks,tushes:tushes,t_length:t_length,t_brush:t_brush,th_spread:th_spread,th_nature:th_nature,t_kink:t_kink,wwl:wwl,b_shape:b_shape,s_height:s_height,p_body:p_body},
+					success: function(data2){
+						$("#el_map_details1").show();
+						$("#el_map_details1").html(data2);
+						$("#el_map_details").hide();
+						$("#form1")[0].reset();
+					}
+				}); 
 			});
 		});
 
@@ -167,7 +230,7 @@ include 'db.php';
 								</div>
 								<br>
 								<div class="button-div" id="check-button-div">
-							    	<button type="submit" class="btn btn-success btn-sm form-button" id="check_button"><i class="fas fa-search"></i> Find Elephants</button>
+							    	<button type="submit" class="btn btn-success btn-sm form-button" id="check_button1"><i class="fas fa-search"></i> Find Elephants</button>
 							    </div>
 							</form>
 	  					<br>
@@ -362,11 +425,11 @@ include 'db.php';
 								      	<label for="inputState">Tail Length</label>
 								      	<select class="form-control form-control-sm" name="t_length" id="t_length">
 								        	<option value="" selected>Choose...</option>
-								        	<option value="T18S1">Very Long</option>
-								        	<option value="T18S2">Long</option>
-								        	<option value="T18S3">Medium</option>
-								        	<option value="T18S4">Short</option>
-								        	<option value="T18S5">Stumpy</option>
+								        	<option value="T19S1">Very Long</option>
+								        	<option value="T19S2">Long</option>
+								        	<option value="T19S3">Medium</option>
+								        	<option value="T19S4">Short</option>
+								        	<option value="T19S5">Stumpy</option>
 								      	</select>
 								    </div>
 								     <div class="form-group col-md-3">
@@ -457,7 +520,7 @@ include 'db.php';
 								</div>
 								<br>
 								<div class="button-div" id="check-button-div">
-							    	<button type="submit" class="btn btn-success btn-sm form-button" id="check_button"><i class="fas fa-search"></i> Find Elephant</button>
+							    	<button type="submit" class="btn btn-success btn-sm form-button" id="check_button2"><i class="fas fa-search"></i> Find Elephant</button>
 							    </div>
 							</form>
 	  					</div>
@@ -465,14 +528,8 @@ include 'db.php';
 				</div>
 			</div>
 			<br>
-			<div class="row">
-				<div class="col-md-6">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2406742.073960497!2d80.74746801507867!3d7.792564142823543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2593cf65a1e9d%3A0xe13da4b400e2d38c!2sSri+Lanka!5e0!3m2!1sen!2slk!4v1555264154776!5m2!1sen!2slk" width="450" height="800" frameborder="0" style="border:0" allowfullscreen></iframe>
-				</div>
-				<div class="col-md-6">
-					<div class="" id="el-details-div"></div>
-				</div>
-			</div>
+			<div id="el_map_details"></div>
+			<div id="el_map_details1"></div>
 		</div>
 	</section>
 
