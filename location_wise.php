@@ -139,7 +139,7 @@ $sql_rslt = mysqli_query($conn,$sql);
 
 			    <div id="collapse<?php echo $row["id"]; ?>" class="collapse" aria-labelledby="heading" >
 			      <div class="card-body">
-			        <?php echo "Latitude : ".$row["latitude"].", Longitude : ".$row["longitude"]."<br><br>"; ?>
+			        <?php echo "Latitude : ".$row["latitude"]."| Longitude : ".$row["longitude"]."<br><br>"; ?>
 			        <div class="el-imgs">
 						<div class="row">
 							<div class="col-sm-12 col-md-3 col-lg-3 img_view">
