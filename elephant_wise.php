@@ -77,10 +77,22 @@ $row = mysqli_fetch_array($sql_rslt);
     .modal-body img{
     	width: 100%;
     }
+    @media(max-width: 600px){
+	    .el-details-div{
+	      	padding: 20px;
+	    }
+	    #detail-div{
+	      	padding-left: 0;
+	      	margin-top: 30px;
+	    }
+	    #map{
+	      	height: 300px;
+	    }
+	}
 </style>
 <div class="row el-details-div">
-	<div class="col-md-5" id="map"></div>
-	<div class="col-md-7" id="detail-div">
+	<div class="col-sm-12 col-md-5 col-lg-5" id="map"></div>
+	<div class="col-sm-12 col-md-7 col-lg-7" id="detail-div">
 		<div id="el-detail-title">
 			<h3>Elephant's Details</h3>
 		</div>

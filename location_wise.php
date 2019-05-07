@@ -70,102 +70,112 @@ $sql_rslt = mysqli_query($conn,$sql);
 
       function doNothing() {}
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=--YOUR_ACCESS_CODE_HERE--&callback=initMap1"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4UEXFCrxhJY1VYMJ9YRgq_9jCn95or0&callback=initMap1"></script>
 <style>
-	.el-details-div{
-		background-color: #eee;
-		padding: 30px 50px 30px 30px;
-		border-radius: 5px;
-	}
-	#detail-div{
-		padding-left: 50px;
-	}
-	#el-detail-title h3{
-		font-family: Roboto;
-		font-weight: 300;
-	}
-	.el-imgs, .el-imgs p{
-		text-align: center;
-	}
-	.details-divider{
-		border-top: 3px solid #13db24;
-		margin-bottom: 30px;
-	}
-	.details{
-		background-color: #fff;
-		border-radius: 5px;
-		padding: 5px 20px;
-	}
-	#map1{
-		width: 100%;
-        height: 500px;
-        border-radius: 5px;
-		box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.4);
+  .el-details-div{
+    background-color: #eee;
+    padding: 30px 50px 30px 30px;
+    border-radius: 5px;
+  }
+  #detail-div{
+    padding-left: 50px;
+  }
+  #el-detail-title h3{
+    font-family: Roboto;
+    font-weight: 300;
+  }
+  .el-imgs, .el-imgs p{
+    text-align: center;
+  }
+  .details-divider{
+    border-top: 3px solid #13db24;
+    margin-bottom: 30px;
+  }
+  .details{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px 20px;
+  }
+  #map1{
+    width: 100%;
+    height: 500px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.4);
+  }
+  #heading{
+    padding: 0;
+    margin: 0;
+  }
+  .img_view img{
+    width: 100%;
+    height: 200px;
+  }
+  .img_view img:hover{
+    cursor: pointer;
+  }
+  .modal-body img{
+    width: 100%;
+  }
+  @media(max-width: 600px){
+    .el-details-div{
+      padding: 20px;
     }
-    #heading{
-    	padding: 0;
-    	margin: 0;
+    #detail-div{
+      padding-left: 0;
+      margin-top: 30px;
     }
-	.img_view img{
-		width: 100%;
-		height: 200px;
-	}
-	.img_view img:hover{
-		cursor: pointer;
-	}
-    .modal-body img{
-    	width: 100%;
+    #map1{
+      height: 300px;
     }
+  }
 </style>
 <div class="row el-details-div">
-	<div class="col-md-5" id="map1"></div>
-	<div class="col-md-7" id="detail-div">
-		<div id="el-detail-title">
-			<h3>Elephants' Details</h3>
-		</div>
-		<div class="details-divider"></div>
-		<?php
-		while($row = mysqli_fetch_array($sql_rslt)){
-		?>
-		<div class="accordion" id="accordionExample">
-			<div class="card">
-			    <div class="card-header" id="heading">
-			      <h5 class="mb-0">
-			        <button class="btn btn-link" type="button" data-toggle="collapse" data-parent="#accordionExample" data-target="#collapse<?php echo $row["id"]; ?>" aria-expanded="true" aria-controls="collapseOne<?php echo $row["id"]; ?>">
-			          <i class="fas fa-map-marker-alt"></i>&nbsp<?php echo "Elephant in ".$row["village"].", ".$row["area"]; ?>
-			        </button>
-			      </h5>
-			    </div>
+  <div class="col-sm-12 col-md-5 col-lg-5" id="map1"></div>
+  <div class="col-sm-12 col-md-7 col-lg-7" id="detail-div">
+    <div id="el-detail-title">
+      <h3>Elephants' Details</h3>
+    </div>
+    <div class="details-divider"></div>
+    <?php
+    while($row = mysqli_fetch_array($sql_rslt)){
+    ?>
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+          <div class="card-header" id="heading">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-parent="#accordionExample" data-target="#collapse<?php echo $row["id"]; ?>" aria-expanded="true" aria-controls="collapseOne<?php echo $row["id"]; ?>">
+                <i class="fas fa-map-marker-alt"></i>&nbsp<?php echo "Elephant in ".$row["village"].", ".$row["area"]; ?>
+              </button>
+            </h5>
+          </div>
 
-			    <div id="collapse<?php echo $row["id"]; ?>" class="collapse" aria-labelledby="heading" >
-			      <div class="card-body">
-			        <?php echo "Latitude : ".$row["latitude"]."| Longitude : ".$row["longitude"]."<br><br>"; ?>
-			        <div class="el-imgs">
-						<div class="row">
-							<div class="col-sm-12 col-md-3 col-lg-3 img_view">
-								<img data-toggle="modal" data-target="#front_view_modal" src=<?php echo '"uploads/'.$row["image_front"].'"'; ?>>
-								<p>Front View</p>
-							</div>
-							<div class="col-sm-12 col-md-3 col-lg-3 img_view">
-								<img data-toggle="modal" data-target="#back_view_modal" src=<?php echo '"uploads/'.$row["image_back"].'"'; ?>>
-								<p>Back View</p>
-							</div>
-							<div class="col-sm-12 col-md-3 col-lg-3 img_view">
-								<img data-toggle="modal" data-target="#left_view_modal" src=<?php echo '"uploads/'.$row["image_left"].'"'; ?>>
-								<p>Left View</p>
-							</div>
-							<div class="col-sm-12 col-md-3 col-lg-3 img_view">
-								<img data-toggle="modal" data-target="#right_view_modal" src=<?php echo '"uploads/'.$row["image_right"].'"'; ?>>
-								<p>Right View</p>
-							</div>
-						</div>
-					</div>
-			      </div>
-			    </div>
-			</div>
-		</div>
-<!-- front image modal --->
-<div class="modal fade" id="front_view_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div id="collapse<?php echo $row["id"]; ?>" class="collapse" aria-labelledby="heading" >
+            <div class="card-body">
+              <?php echo "Latitude : ".$row["latitude"].", Longitude : ".$row["longitude"]."<br><br>"; ?>
+              <div class="el-imgs">
+            <div class="row">
+              <div class="col-sm-12 col-md-3 col-lg-3 img_view">
+                <img data-toggle="modal" data-target="#front_view_modal<?php echo $row["id"]; ?>" src=<?php echo '"uploads/'.$row["image_front"].'"'; ?>>
+                <p>Front View</p>
+              </div>
+              <div class="col-sm-12 col-md-3 col-lg-3 img_view">
+                <img data-toggle="modal" data-target="#back_view_modal<?php echo $row["id"]; ?>" src=<?php echo '"uploads/'.$row["image_back"].'"'; ?>>
+                <p>Back View</p>
+              </div>
+              <div class="col-sm-12 col-md-3 col-lg-3 img_view">
+                <img data-toggle="modal" data-target="#left_view_modal<?php echo $row["id"]; ?>" src=<?php echo '"uploads/'.$row["image_left"].'"'; ?>>
+                <p>Left View</p>
+              </div>
+              <div class="col-sm-12 col-md-3 col-lg-3 img_view">
+                <img data-toggle="modal" data-target="#right_view_modal<?php echo $row["id"]; ?>" src=<?php echo '"uploads/'.$row["image_right"].'"'; ?>>
+                <p>Right View</p>
+              </div>
+            </div>
+          </div>
+            </div>
+          </div>
+          <!-- front image modal --->
+<div class="modal fade" id="front_view_modal<?php echo $row["id"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -182,7 +192,7 @@ $sql_rslt = mysqli_query($conn,$sql);
 </div>
 
 <!-- back image modal --->
-<div class="modal fade" id="back_view_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="back_view_modal<?php echo $row["id"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -199,7 +209,7 @@ $sql_rslt = mysqli_query($conn,$sql);
 </div>
 
 <!-- left image modal --->
-<div class="modal fade" id="left_view_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="left_view_modal<?php echo $row["id"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -216,7 +226,7 @@ $sql_rslt = mysqli_query($conn,$sql);
 </div>
 
 <!-- right image modal --->
-<div class="modal fade" id="right_view_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="right_view_modal<?php echo $row["id"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -231,9 +241,12 @@ $sql_rslt = mysqli_query($conn,$sql);
     </div>
   </div>
 </div>
-		<?php
-		}
-		?>
-	</div>
+      </div>
+    </div>
+
+    <?php
+    }
+    ?>
+  </div>
 </div>
 

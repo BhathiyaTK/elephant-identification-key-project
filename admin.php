@@ -219,7 +219,7 @@
 			</div>
 			<div class="user_details">
 				<button type="submit" class="btn btn-warning btn-sm form-button" id="show_user_button">Show/Hide Users</button>
-				<div id="users-tbl-show-div"></div>
+				<div id="users-tbl-show-div" class="table-responsive-sm table-responsive-md"></div>
 			</div>
 		</div>
 	</section>

@@ -57,6 +57,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 				$(this).remove();
 			});
 		});
+		$(document).ready(function(){
+			$("#scroll_btn").on('click', function(event) {
+		      	event.preventDefault();
+		      		$('html, body').animate({
+			        	scrollTop: $('#about').offset().top="680px"
+			      	}, 1000);
+		    });
+		});
 	</script>
 </head>
 
@@ -163,7 +171,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			<div class="curved-div-front"></div>
 			<div class="curved-div-middle">
 				<div class="mouse_scroll">
-					<a href="#about" class="scrollto">
+					<a href="#about" class="scrollto" id="scroll_btn">
 			          	<div>
 			            	<span class="m_scroll_arrows unu"></span>
 			            	<span class="m_scroll_arrows doi"></span>
@@ -179,15 +187,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	<section id="about">
 		<div class="about-container">
 			<div class="row about-div-content">
-				<div class="col-sm-12 col-md-3">
+				<div class="col-sm-12 col-md-3 col-lg-3">
 					<img id="elephant-img1" src="images/elephant1.png">
 				</div>
-				<div class="col-sm-12 col-md-9" id="about-div-text">
+				<div class="col-sm-12 col-md-9 col-lg-9" id="about-div-text">
 					<p id="about-title">
 						<h2 class="titles">About</h2>
 					</p>
 					<div class="small-div-part"></div>
-					<p class="title-description" style="padding-right: 60px;">
+					<p class="title-description">
 						This is a pictorial web guide to Sri Lankan young elephants at Elephant Transite Home, Udawalawe. It contains the photographs of 49 young elephants rearing at Elephant Transite Home, Udawalawe. Up to date (27th of November,2017), this guide includes the photographs of 41 traits and 137 trait states of Sri Lankan young elephants which are used to individual identification. Altogether, this website contains photographs and description of each young elephant (less than 8 years old) at Elephant Transit Home, Udawalawe and their distribution map. 
 					</p>
 				</div>
@@ -199,19 +207,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 		<div class="dark-background">
 			<div class="history-container">
 				<div class="row history-div-content">
-					<div class="col-sm-12 col-md-9" id="history-div-text">
+					<div class="col-sm-12 col-md-9 col-lg-9" id="history-div-text">
 						<p id="history-title">
 							<h2 class="titles">History</h2>
 						</p>
 						<div class="small-div-part"></div>
-						<p class="title-description" style="padding-right: 60px;">
-							All the information in this website has been organized according to the final year research project entitled <b>“An assessment of physical characteristics of young elephants for individual identification at Elephant Transit Home, Udawalawe”</b> which was conducted by <span>Ms. E.P.A Perera</span> in 2017.  <span>Ms. E.P.A Perera</span> was an undergraduate student under the supervision of a senior lecturer <span>Dr. E.P Kudavidanage</span> at Department of Natural Resources, Faculty of Applied Sciences, Sabaragamuwa University of Sri Lanka and <span>Dr. Vijitha Perera</span> who is a deputy director of Department of Wildlife Conservation, Sri Lanka.
+						<p class="title-description">
+							All the information in this website has been organized according to the final year research project entitled <b>“An assessment of physical characteristics of young elephants for individual identification at Elephant Transit Home, Udawalawe”</b> which was conducted by <a href="https://www.linkedin.com/in/piyumi-perera-b30975124/"><span>Ms. E.P.A Perera</span></a> in 2017. <a href="https://www.linkedin.com/in/piyumi-perera-b30975124/"><span>Ms. E.P.A Perera</span></a> was an undergraduate student under the supervision of a senior lecturer <a href="https://www.linkedin.com/in/enoka-kudavidanage-44bb8619/"><span>Dr. E.P Kudavidanage</span></a> at Department of Natural Resources, Faculty of Applied Sciences, Sabaragamuwa University of Sri Lanka and <span>Dr. Vijitha Perera</span> who is a deputy director of Department of Wildlife Conservation, Sri Lanka.
 						</p>
-						<p class="title-description" style="padding-right: 60px;">
-							The website was designated by an undergraduate student <span>Mr. Bhathiya Kariyawasam</span> under the supervision of <span>Mr. G.A.C.A Herath</span> who is a lecturer of Department of Computing and Information Systems, Faculty of Applied Sciences, Sabaragamuwa University of Sri Lanka. 
+						<p class="title-description">
+							The website was designated by an undergraduate student <a href="https://www.linkedin.com/in/bhathiya-kariyawasam-a77235142/"><span>Mr. Bhathiya Kariyawasam</span></a> under the supervision of <a href="https://www.linkedin.com/in/anuradhaherath/"><span>Mr. G.A.C.A Herath</span></a> who is a lecturer of Department of Computing and Information Systems, Faculty of Applied Sciences, Sabaragamuwa University of Sri Lanka. 
 						</p>
 					</div>
-					<div class="col-sm-12 col-md-3">
+					<div class="col-sm-12 col-md-3 col-lg-3">
 						<img id="elephant-img2" src="images/elephant9.png">
 					</div>
 				</div>
@@ -222,21 +230,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	<section class="concept-section">
 		<div class="concept-container">
 			<div class="row concept-div-content">
-				<div class="col-sm-12 col-md-2">
+				<div class="col-sm-12 col-md-2 col-lg-2">
 					<img id="elephant-img3" src="images/elephant11.png">
 				</div>
-				<div class="col-sm-12 col-md-10" id="concept-div-text">
+				<div class="col-sm-12 col-md-10 col-lg-10" id="concept-div-text">
 					<p id="concept-title">
 						<h2 class="titles">Concept</h2>
 					</p>
 					<div class="small-div-part"></div>
-					<p class="title-description" style="padding-right: 60px;">
+					<p class="title-description">
 						Asian elephants are super keystone species, but they have become endangered due to human elephant conflict. Therefore, extreme conservation measures are needed. To do that, the species management is the best conservation method for such kind of endangered animals. The individual identification is the first step for it. Specially, this is important in special conservation attentions such as tuskers, captive elephants, wounded elephants, conflict causing and translocate elephants.    
 					</p>
-					<p class="title-description" style="padding-right: 60px;">
+					<p class="title-description">
 						A key is a systematic method for individual identification of animals in addition to simple observation. However, there was no key for young elephant identification and adult context is also not applicable for them although Sri Lankan young elephant identification key has been developed using their natural physical characteristics. The key will be important to carry out the conservation and management activities for both wild and captive young elephants by individual identification.     
 					</p>
-					<p class="title-description guide-link-para" style="padding-right: 60px;">
+					<p class="title-description guide-link-para">
 						<a class="guide-link" href="guide.php">Read more <i class="fas fa-angle-double-right"></i></a>
 					</p>
 				</div>
@@ -248,15 +256,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 		<div class="dark-background">
 			<div class="data-container">
 				<div class="row data-div-content">
-					<div class="col-sm-12 col-md-9" id="data-div-text">
+					<div class="col-sm-12 col-md-9 col-lg-9" id="data-div-text">
 						<p id="data-title">
 							<h2 class="titles">Data Collection & Outcome</h2>
 						</p>
 						<div class="small-div-part"></div>
-						<p class="title-description" style="padding-right: 60px;">
+						<p class="title-description">
 							Through the website following information are collected.
 						</p>
-						<p class="title-description" style="padding-right: 60px;">
+						<p class="title-description">
 							<ul>
 								<li>Date/ Time of observation</li>
 								<li>Location: City/ Village, District, lat, lon</li>
@@ -266,7 +274,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 							</ul>
 						</p>
 					</div>
-					<div class="col-sm-12 col-md-3">
+					<div class="col-sm-12 col-md-3 col-lg-3">
 						<img id="elephant-img4" src="images/elephant10.png">
 					</div>
 				</div>
@@ -277,7 +285,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	<section class="map-section">
 		<div class="mapouter">
 			<div class="gmap_canvas">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31717.969401753737!2d80.79893937855834!3d6.42664788711458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae4075c0f3ce00b%3A0x853f2e9cf8fb14dd!2sElephant+Transit+Home!5e0!3m2!1sen!2slk!4v1553446383072" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31717.969401753737!2d80.79893937855834!3d6.42664788711458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae4075c0f3ce00b%3A0x853f2e9cf8fb14dd!2sElephant+Transit+Home!5e0!3m2!1sen!2slk!4v1553446383072" frameborder="0" style="border:0" allowfullscreen></iframe>
 				<a href="https://www.emojilib.com"></a>
 			</div>
 			<style>
@@ -294,10 +302,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	<section class="footer_sec">
 		<div class="container" id="footer-container">
 			<div class="row">
-				<div class="col-md-5 col-sm-12" id="img-col">
+				<div class="col-md-5 col-sm-12 col-lg-5" id="img-col">
 					<img src="images/logo.png">
 				</div>
-				<div class="col-md-3 col-sm-12">
+				<div class="col-md-3 col-sm-12 col-lg-3">
 					<div class="quik-links-title">
 						Quik Links
 					</div>
@@ -309,7 +317,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-4 col-sm-12">
+				<div class="col-md-4 col-sm-12 col-lg-4">
 					<div class="contact-links-title">
 						Contact Us
 					</div>
