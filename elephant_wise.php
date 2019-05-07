@@ -132,7 +132,7 @@ $row = mysqli_fetch_array($sql_rslt);
             });
         }
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4UEXFCrxhJY1VYMJ9YRgq_9jCn95or0&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=--YOUR_ACCESS_CODE_HERE--&callback=initMap"></script>
 </div>
 <!-- front image modal --->
 <div class="modal fade" id="front_view_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

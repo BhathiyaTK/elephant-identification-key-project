@@ -70,7 +70,7 @@ $sql_rslt = mysqli_query($conn,$sql);
 
       function doNothing() {}
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4UEXFCrxhJY1VYMJ9YRgq_9jCn95or0&callback=initMap1"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=--YOUR_ACCESS_CODE_HERE--&callback=initMap1"></script>
 <style>
 	.el-details-div{
 		background-color: #eee;
