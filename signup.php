@@ -20,12 +20,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><i class="fas fa-check-circle fa-lg"></i>
 			<b>Registration request has been sent successfully. Your request is now on pending state.</b></div>';
 
-            $headers = "From: bhathiyakariyawasam94@gmail.com \r\n";
-            $headers .= "Reply-To: bhathiyakariyawasam94@gmail.com \r\n";
-            $headers .= "To: $reg_email \r\n";
+            $headers = "From: $reg_email \r\n";
+            $headers .= "Reply-To: $reg_email \r\n";
+            $headers .= "To: example@gmail.com \r\n";
             $headers .= "X-Mailer: PHP/" . PHP_VERSION;
 
-            $to = "$reg_email";
+            $to = "example@gmail.com";
             $subject = "Registration request for access Elephant Identification Key system";
             $body =  "$reg_name!\n $reg_birthday\n $reg_tel\n $reg_nic\n $reg_gender\n $reg_email\n $reg_profession\n $reg_purpose";
 
@@ -53,13 +53,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-	<link rel="icon" href="images/elephant2.png">
-	<title>Elephant Identification Key | Sign Up</title>
+	<link rel="icon" href="images/elephant.ico">
+	<title>Sign Up | EIKSL</title>
 	<script type="text/javascript">
 		$(window).on("load", function() {
 			$(".se-pre-con").fadeOut("slow", function(){
@@ -69,14 +70,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	</script>
 </head>
 <body id="signup-body">
-	<nav class="navbar navbar-expand-lg navbar-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark" style="box-shadow: none;">
 		<a class="navbar-brand" href="index.php"><img src="images/eik-logo.png"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" >
 		    <span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto" id="nav-links">
+			<ul class="navbar-nav mr-auto" id="nav-links">
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="index.php">Home</a>
 		      	</li>
@@ -101,13 +102,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 					      	<li class="nav-item">
 					        	<a class="nav-link" href="admin.php">Admin Panel</a>
 					      	</li>
-			      	<?php
+			    <?php
 			      		} 
-			      	} ?>
+			      	}
+			    } ?>
+			</ul>
+			<ul class="navbar-nav ml-auto" id="nav-links">
+	      		<?php if(isset($_SESSION["email"])){ ?>
+		      		<li class="nav-item" id="user-name"><?php echo "Hello, ".$_SESSION["first_name"]." !"; ?></li>
 		      		<li class="nav-item">
 		      			<a class="btn btn-danger btn-sm" id="sign_out_btn" href="signout.php"><i class="fas fa-sign-out-alt"></i><span>|</span>SIGN OUT</a>
 		      		</li>
-		      		<li class="nav-item" id="user-name"><?php echo "Hello, ".$_SESSION["first_name"]." !"; ?></li>
 		      	<?php
 		      	}else{ ?>
 		      		<li class="nav-item dropdown">

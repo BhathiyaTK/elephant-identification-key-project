@@ -1,5 +1,12 @@
 <?php
 	include 'db.php';
+
+if ((isset($_SESSION["first_name"])) && (isset($_SESSION["type"]))) {
+	if (($_SESSION["first_name"] == '')&&($_SESSION["type"] == '')) {
+		
+		header("location: index.php");
+
+	}else{
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +23,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Viga" rel="stylesheet">	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -34,8 +42,8 @@
 	<link rel="stylesheet" type="text/css" href="css/chosen.css">
 	<link rel="stylesheet" type="text/css" href="css/ImageSelect.css">
 
-	<link rel="icon" href="images/elephant2.png">
-	<title>Elephant Identification Key | Admin Panel</title>
+	<link rel="icon" href="images/elephant.ico">
+	<title>Admin Panel | EIKSL</title>
 	<script type="text/javascript">
 		$(window).on("load", function() {
 			$(".se-pre-con").fadeOut("slow", function(){
@@ -96,14 +104,14 @@
 		});
 	</script>
 
-	<nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top" style="box-shadow: none;">
 		<a class="navbar-brand" href="index.php"><img src="images/eik-logo.png"></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" >
 		    <span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto" id="nav-links">
+			<ul class="navbar-nav mr-auto" id="nav-links">
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="index.php">Home</a>
 		      	</li>
@@ -123,10 +131,12 @@
 		      	<li class="nav-item">
 		        	<a class="nav-link active" href="admin.php">Admin Panel</a>
 		      	</li>
+		    </ul>
+		    <ul class="navbar-nav ml-auto" id="nav-links">
+			    <li class="nav-item" id="user-name"><?php echo "Hello, ".$_SESSION["first_name"]." !"; ?></li>
 		      	<li class="nav-item">
 			        <a class="btn btn-danger btn-sm" id="sign_out_btn" href="signout.php"><i class="fas fa-sign-out-alt"></i><span>|</span>SIGN OUT</a>
 			    </li>
-			    <li class="nav-item" id="user-name"><?php echo "Hello, ".$_SESSION["first_name"]." !"; ?></li>
 		    </ul>
 		</div>
 	</nav>
@@ -277,3 +287,7 @@
 </body>
 <div class="se-pre-con"></div>
 </html>
+<?php
+	}
+}
+?>

@@ -4,21 +4,31 @@ include 'db.php';
 
 $sex = $_POST["sex"];
 $age = $_POST["age"];
-$es_fold = $_POST["es_fold"];
-$et_fold = $_POST["et_fold"];
-$e_angle = $_POST["e_angle"];
-$el_shape = $_POST["el_shape"];
-$el_length = $_POST["el_length"];
-$e_nick_tear = $_POST["e_nick_tear"];
-$e_holes = $_POST["e_holes"];
-$e_depig = $_POST["e_depig"];
+$es_fold_l = $_POST["es_fold_l"];
+$es_fold_r = $_POST["es_fold_r"];
+$et_fold_l = $_POST["et_fold_l"];
+$et_fold_r = $_POST["et_fold_r"];
+$e_angle_l = $_POST["e_angle_l"];
+$e_angle_r = $_POST["e_angle_r"];
+$el_shape_l = $_POST["el_shape_l"];
+$el_shape_r = $_POST["el_shape_r"];
+$el_length_l = $_POST["el_length_l"];
+$el_length_r = $_POST["el_length_r"];
+$e_nick_tear_l = $_POST["e_nick_tear_l"];
+$e_nick_tear_r = $_POST["e_nick_tear_r"];
+$e_holes_l = $_POST["e_holes_l"];
+$e_holes_r = $_POST["e_holes_r"];
+$e_depig_l = $_POST["e_depig_l"];
+$e_depig_r = $_POST["e_depig_r"];
 $h_depig = $_POST["h_depig"];
 $j_depig = $_POST["j_depig"];
 $t_depig = $_POST["t_depig"];
 $j_shape = $_POST["j_shape"];
 $h_shape = $_POST["h_shape"];
-$tusks = $_POST["tusks"];
-$tushes = $_POST["tushes"];
+$tusks_l = $_POST["tusks_l"];
+$tusks_r = $_POST["tusks_r"];
+$tushes_l = $_POST["tushes_l"];
+$tushes_r = $_POST["tushes_r"];
 $t_length = $_POST["t_length"];
 $t_brush = $_POST["t_brush"];
 $th_spread = $_POST["th_spread"];
@@ -30,16 +40,19 @@ $s_height = $_POST["s_height"];
 $p_body = $_POST["p_body"];
 $username = $_SESSION["first_name"];
 
-$sql = "SELECT * FROM elephants WHERE (sex='$sex' AND age='$age' AND es_fold='$es_fold' AND et_fold='$et_fold' AND e_angle='$e_angle' AND el_shape='$el_shape' AND el_length='$el_length' AND e_nick_tear='$e_nick_tear' AND e_holes='$e_holes' AND e_depig='$e_depig' AND h_depig='$h_depig' AND j_depig='$j_depig' AND t_depig='$t_depig' AND j_shape='$j_shape' AND h_shape='$h_shape' AND tusks='$tusks' AND tushes='$tushes' AND t_length='$t_length' AND t_brush='$t_brush' AND th_spread='$th_spread' AND th_nature='$th_nature' AND t_kink='$t_kink' AND wwl='$wwl' AND b_shape='$b_shape' AND s_height='$s_height' AND p_body='$p_body')";
+$sql = "SELECT * FROM elephants WHERE (sex='$sex' AND age='$age' AND es_fold_l='$es_fold_l' AND es_fold_r='$es_fold_r' AND et_fold_l='$et_fold_l' AND et_fold_r='$et_fold_r' AND e_angle_l='$e_angle_l' AND e_angle_r='$e_angle_r' AND el_shape_l='$el_shape_l' AND el_shape_r='$el_shape_r' AND el_length_l='$el_length_l' AND el_length_r='$el_length_r' AND e_nick_tear_l='$e_nick_tear_l' AND e_nick_tear_r='$e_nick_tear_r' AND e_holes_l='$e_holes_l' AND e_holes_r='$e_holes_r' AND e_depig_l='$e_depig_l' AND e_depig_r='$e_depig_r' AND h_depig='$h_depig' AND j_depig='$j_depig' AND t_depig='$t_depig' AND j_shape='$j_shape' AND h_shape='$h_shape' AND tusks_l='$tusks_l' AND tusks_r='$tusks_r' AND tushes_l='$tushes_l' AND tushes_r='$tushes_r' AND t_length='$t_length' AND t_brush='$t_brush' AND th_spread='$th_spread' AND th_nature='$th_nature' AND t_kink='$t_kink' AND wwl='$wwl' AND b_shape='$b_shape' AND s_height='$s_height' AND p_body='$p_body')";
 
 $sql_rslt = mysqli_query($conn,$sql);
 
-$row = mysqli_fetch_array($sql_rslt);
+$count=mysqli_num_rows($sql_rslt);
+
+if ($count>=1) {
+
+	$row = mysqli_fetch_array($sql_rslt);
 ?>
 <style>
 	.el-details-div{
-		background-color: #eee;
-		padding: 30px 50px 30px 30px;
+		padding: 30px;
 		border-radius: 5px;
 	}
 	#detail-div{
@@ -119,10 +132,13 @@ $row = mysqli_fetch_array($sql_rslt);
 				</div>
 			</div>
 		</div>
-		<div class="row details">
+		<div class="details">
 			<div class="col-sm-12 col-md-12 col-lg-12">
 				<p>
 					<ul>
+						<li>Name : <b><?php echo $row["name"]; ?></b></li>
+						<li>Elephant No. : <b><?php echo $row["e_number"]; ?></b></li>
+						<li>Date of observation : <b><?php echo $row["e_date"]; ?></b></li>
 						<li>Founded Area : <b><?php echo $row["area"]; ?></b></li>
 						<li>Latitude : <i><?php echo $row["latitude"]; ?></i></li>
 						<li>Longitude : <i><?php echo $row["longitude"]; ?></i></li>
@@ -213,3 +229,9 @@ $row = mysqli_fetch_array($sql_rslt);
     </div>
   </div>
 </div>
+
+<?php
+}else{
+  echo '<div style="font-size: 18px; font-family: Open Sans; text-align:center;"><b><i class="far fa-sad-tear fa-lg"></i> &nbsp No Results were Found.</b></div>';
+}
+?>

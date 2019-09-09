@@ -1,14 +1,5 @@
 <?php
-$host="localhost";
-$db_name="root";
-$db_pass= "";
-$db="eik";
-
-$conn = new mysqli($host,$db_name,$db_pass,$db);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'db.php';
 
 function parseToXML($htmlStr)
 {
@@ -21,8 +12,9 @@ return $xmlStr;
 }
 
 // Select all the rows in the markers table
-$areaVal = "Sooriyawewa";
-$query = "SELECT * FROM elephants WHERE area='$areaVal'";
+// $areaVal = "Sooriyawewa";
+
+$query = "SELECT * FROM elephants WHERE 1";
 $result = mysqli_query($conn,$query);
 if (!$result) {
   die('Invalid query: ' . $conn->connect_error);
@@ -40,7 +32,7 @@ while ($row = @mysqli_fetch_assoc($result)){
   echo '<marker ';
   echo 'id="' . $row['id'] . '" ';
   echo 'area="' . parseToXML($row['area']) . '" ';
-  echo 'village="' . parseToXML($row['village']) . '" ';
+  echo 'name="' . parseToXML($row['name']) . '" ';
   echo 'lat="' . $row['latitude'] . '" ';
   echo 'lng="' . $row['longitude'] . '" ';
   echo '/>';

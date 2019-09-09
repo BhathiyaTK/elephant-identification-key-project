@@ -24,6 +24,14 @@
         });
     });
 </script>
+<style>
+	table th, .del-btn{
+		text-align: center;
+	}
+	#user_delete_form i{
+		margin-left: 5px;
+	}
+</style>
 
 <?php
 
@@ -31,7 +39,7 @@ include 'db.php';
 
 $show_user_tbl = $_POST["show_tbl_val"];
 
-if ($show_user_tbl == "$show_user_tbl") {
+if (isset($show_user_tbl)) {
 	$sql_users = "SELECT * FROM users";
 	$sql_user_rslt = mysqli_query($conn,$sql_users);
 ?>
@@ -60,7 +68,7 @@ if ($show_user_tbl == "$show_user_tbl") {
 				<td><?php echo $row["email"] ?></td>
 				<td><?php echo $row["profession"] ?></td>
 				<td><?php echo $row["type"] ?></td>
-				<td>
+				<td class="del-btn">
 					<form id="user_delete_form">
 						<button class="btn btn-danger btn-sm user_del_btn" id="<?php echo $row['id']; ?>"><i class="fas fa-user-times"></i></button>
                 </form>
