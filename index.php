@@ -140,7 +140,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 	    function doNothing() {}	
 	</script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4UEXFCrxhJY1VYMJ9YRgq_9jCn95or0&callback=initMapHome"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=<YOUR_GOOGLE_MAP_API_KEY_HERE>&callback=initMapHome"></script>
 </head>
 
 <body>
