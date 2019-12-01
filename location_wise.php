@@ -89,7 +89,7 @@ if ($count>=1) {
       function doNothing() {}
     </script>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4UEXFCrxhJY1VYMJ9YRgq_9jCn95or0&callback=initMap1"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<YOUR_GOOGLE_MAP_API_KEY_HERE>&callback=initMap1"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 <!-- <script src="js/piechart.min.js"></script>
