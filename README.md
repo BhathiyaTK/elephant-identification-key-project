@@ -8,6 +8,7 @@ filtering options and their full bio details via this website. Admins only have 
 - HTML5
 - CSS3
 - Javascript & JQuery
+- AJAX
 - PHP
 - MySQL
 - Google Map API
